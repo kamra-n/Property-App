@@ -100,7 +100,9 @@ class _LoginState extends State<Login> {
                 height: 15.0,
               ),
               GestureDetector(
-                onTap: () {},
+                onTap: () {
+                  Navigator.pushReplacementNamed(context, '/home');
+                },
                 child: Container(
                   height: 55.0,
                   width: 335.0,

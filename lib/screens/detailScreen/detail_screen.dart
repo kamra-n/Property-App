@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
+import 'package:propertymanagementapp/helpers/house_list.dart';
 
 class DetailScreen extends StatefulWidget {
   const DetailScreen({super.key});
@@ -9,8 +9,17 @@ class DetailScreen extends StatefulWidget {
 }
 
 class _DetailScreenState extends State<DetailScreen> {
+  addFav({required int id}) {
+    var item = HouseList.houseList.firstWhere((element) => element['id'] == id);
+    item['isFav'] = true;
+    ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+      content: Center(child: Text("Item Updated")),
+    ));
+  }
+
   @override
   Widget build(BuildContext context) {
+    final int args = ModalRoute.of(context)!.settings.arguments as int;
     return SafeArea(
         child: Scaffold(
       body: Padding(
@@ -30,7 +39,9 @@ class _DetailScreenState extends State<DetailScreen> {
                         TextStyle(fontWeight: FontWeight.w800, fontSize: 24.0),
                   ),
                   GestureDetector(
-                    onTap: () {},
+                    onTap: () {
+                      Navigator.pop(context);
+                    },
                     child: Container(
                       width: 45.0,
                       height: 45.0,
@@ -97,7 +108,9 @@ class _DetailScreenState extends State<DetailScreen> {
                           ],
                         ),
                         GestureDetector(
-                          onTap: () {},
+                          onTap: () {
+                            addFav(id: args);
+                          },
                           child: Container(
                             width: 40.0,
                             height: 40.0,

@@ -8,16 +8,23 @@ class HouseViewContainer extends StatefulWidget {
   final String baths;
   final String garage;
   final bool? isFav;
+  final void Function()? onpress;
+  // final void Function()? addFav;
+  final void Function()? removeFav;
 
-  const HouseViewContainer(
-      {super.key,
-      required this.houseImage,
-      required this.houseTitle,
-      required this.houseDescription,
-      required this.beds,
-      required this.baths,
-      required this.garage,
-      this.isFav});
+  const HouseViewContainer({
+    super.key,
+    required this.houseImage,
+    required this.houseTitle,
+    required this.houseDescription,
+    required this.beds,
+    required this.baths,
+    required this.garage,
+    this.isFav,
+    this.onpress,
+    // this.addFav,
+    this.removeFav,
+  });
 
   @override
   State<HouseViewContainer> createState() => _HouseViewContainerState();
@@ -27,7 +34,7 @@ class _HouseViewContainerState extends State<HouseViewContainer> {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () {},
+      onTap: widget.onpress,
       child: Container(
         margin: const EdgeInsets.only(right: 10.0),
         child: Column(
@@ -73,7 +80,7 @@ class _HouseViewContainerState extends State<HouseViewContainer> {
                           Visibility(
                               visible: widget.isFav!,
                               child: GestureDetector(
-                                onTap: () {},
+                                onTap: widget.removeFav,
                                 child: Container(
                                   width: 29.0,
                                   height: 29.0,

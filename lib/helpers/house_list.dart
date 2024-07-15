@@ -1,6 +1,7 @@
 class HouseList {
   static List<Map<String, dynamic>> houseList = [
     {
+      'id': 1,
       "title": "CRAFTSMAN HOUSE",
       "description": "520 N Btoudry Ave Los Angeles",
       "beds": '4',
@@ -20,6 +21,7 @@ class HouseList {
       ]
     },
     {
+      'id': 2,
       "title": "CRAFTSMAN HOUSE 1",
       "description": "520 N Btoudry Ave Los Angeles",
       "beds": '2',
@@ -39,6 +41,7 @@ class HouseList {
       ]
     },
     {
+      'id': 3,
       "title": "CRAFTSMAN HOUSE 2",
       "description": "520 N Btoudry Ave Los Angeles",
       "beds": '4',
@@ -58,6 +61,7 @@ class HouseList {
       ]
     },
     {
+      'id': 4,
       "title": "CRAFTSMAN HOUSE 4",
       "description": "520 N Btoudry Ave Los Angeles",
       "beds": '4',

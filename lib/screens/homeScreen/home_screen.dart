@@ -52,7 +52,9 @@ class _HomeScreenState extends State<HomeScreen> {
                       ],
                     ),
                     GestureDetector(
-                      onTap: () {},
+                      onTap: () {
+                        Navigator.pushNamed(context, '/wishlist');
+                      },
                       child: Container(
                         width: 50.0,
                         height: 50.0,
@@ -154,6 +156,8 @@ Widget showWidget(int numb) {
                 baths: HouseList.houseList[index]['baths'],
                 garage: HouseList.houseList[index]['garage'],
                 isFav: HouseList.houseList[index]['isFav'],
+                onpress: () => Navigator.pushNamed(context, '/detail',
+                    arguments: HouseList.houseList[index]['id']),
               );
             },
           ),
